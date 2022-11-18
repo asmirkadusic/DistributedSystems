@@ -1,0 +1,9 @@
+Started GET "/" for 127.0.0.1 at 2022-11-18 22:45:38 +0100
+Processing by HelloController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering hello/index.html.erb within layouts/application
+  Rendered hello/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 463)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 7116)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 9333)
+
+
