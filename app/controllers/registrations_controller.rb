@@ -4,6 +4,12 @@ class RegistrationsController < ApplicationController
     end
 
     def create
-        render plain: params[:user]
+        @user = User.find_by(email: params[:email])
+        if !!@user && @user.authenticate(params[:password])
+            flash.alert = "You are logged in succesfully"
+        else
+            message = "Something gone wrong!!"
+            redirect_to root_path, notice: message
+        end
     end
 end
