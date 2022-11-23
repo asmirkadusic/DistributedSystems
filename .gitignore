@@ -1,13 +1,3 @@
-*.rbc
-*.sassc
-.sass-cache
-/log/*
-tmp/*
-/db/*.sqlite3
-/public/system/*
-/coverage/
-/spec/tmp/*
-**.orig
-rerun.txt
-pickle-email-*.html
+log/
+tmp/
 

@@ -1,0 +1,4 @@
+####################### Description of project for Data Engineering and Distributed Information Systems #####################
+The idea for application is to implement simply chat application using Ruby on Rails for server side, and probably Ember.js for client side. 
+Application will have a two behaviors, for now. First behavior is communication between two peoples, and the second in is group chat. 
+For design part, I am not sure yet but I will explore a little bit about it. That it is for now. I will keep updating this file.
