@@ -5,15 +5,19 @@ class RegistrationsController < ApplicationController
 
     
     def create
-        @user = User.create(user_params)
-        if @user.valid?
-            redirect_to root_path
+        @user = User.new(user_params)
+        if @user.save
+            session[:user_id] = @user.id
+            redirect_to root_path, notice: "Successfully logged in!!"
+        else
+            flash[:alert] = "Someting gone wrone!"
+            render :new
         end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:email, :password_diges)
+        params.require(:user).permit(:email, :password)
     end
 end
