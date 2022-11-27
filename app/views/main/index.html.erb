@@ -1,5 +1,6 @@
 <h1> Welcome to my page </h1>
 <div>
+
 <% if Current.user %>
     Logged in as: <%= Current.user.email %>
 <%= button_to "Logout", logout_path, method: :delete %>
