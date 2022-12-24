@@ -6,26 +6,26 @@ class RegistrationsController < ApplicationController
     def check
         # this works for login users
         @possibleUser = User.new(user_params)
-        @possibleuser = User.find_by(email: user_params[:email], password: user_params[:password])
+        @possibleuserNew = User.find_by(email: user_params[:email], password: user_params[:password])
         if User.exists?(:email => user_params[:email], :password => user_params[:password])
-            render json: @possibleUser
+            render json: {"status": "ok"}
         else
-            render json: {}
+            render json: {"user": "not found"}
         end
     end
 
     
     def create
-        @user = User.new(user_params)
+        @user = User.new user_params
         if @user.save
-            session[:user_id] = @user.id
-            render :json => { :error => 0, :success => 1}
+            #session[:user_id] = @user.id
+            render json: @user, status: 201
         else
-            render :json => { :error => 1, :success => 0}
+            render json: { errors: @user.errors.full_messages}
         end
     end
 
-    private
+    
 
     def user_params
         params.require(:user).permit(:email, :password)
