@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :email, :password
-  validates :email, uniqueness: {case_sensitive: false}
-  
+  attribute :email, :string
+  attribute :password
+  validates :email, uniqueness: {case_sensitive: false}  
 end
