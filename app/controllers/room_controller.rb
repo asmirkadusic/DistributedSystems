@@ -1,8 +1,9 @@
-class RoomsController < ApplicationController
+class RoomController < ApplicationController
     before_action :load_entities
 
     def index
         @rooms = Room.all
+        render json: @rooms
     end
 
     def new
@@ -13,14 +14,18 @@ class RoomsController < ApplicationController
         @room = Room.new permitted_parameters
 
         if @room.save
-            flash[:succes] = "Room #{@room.name} was cretaed successfully!"
-            redirect_to rooms_path
+            render json: @room
         else
             render :new
         end 
     end
 
     def edit
+    end
+
+    def show
+        @chat = Room.find[params[:id]]
+        render json: room, include: [:room_messages]
     end
 
     protected

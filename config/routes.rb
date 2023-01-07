@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :room_messages
-  resources :rooms
+  resources :room_message, only: [:create]
+  resources :room, only: [:index, :create, :show]
   #resources :posts
   
   root to: "main#index"
@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   #post "/sign_in", to: "sessions#create"
   
   resources :user
+
+  
 end
