@@ -4,7 +4,9 @@ class RoomMessageController < ApplicationController
     def create
         @room_message = RoomMessage.new(message_params)
         if @room_message.save
-            render json: @room_message
+            @chat_room = Room.find(@room_message.room)
+            RoomChannel.broadcast_to(@chat_room, @room_message)
+            # render json: @room_message
         else
             render json: {}
         end

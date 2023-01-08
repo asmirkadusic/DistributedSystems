@@ -167,6 +167,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actioncable
   active_model_serializers (~> 0.10.7)
   bcrypt (~> 3.1.7)
   debug

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  mount ActionCable.server => '/cable'
+  
   resources :room_message, only: [:create]
   resources :room, only: [:index, :create, :show]
   #resources :posts
@@ -18,5 +21,4 @@ Rails.application.routes.draw do
   
   resources :user
 
-  
 end
